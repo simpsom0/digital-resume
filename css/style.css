@@ -1,0 +1,266 @@
+/* debugging
+* {
+  border: 1px solid #c51f5d;
+  margin: 4px;
+  padding: 5px;
+} */
+
+/* currently color palette:
+    - Night Mode Twitter
+    - https://www.color-hex.com/color-palette/55334
+*/
+:root {
+  --background: #141d26;
+  --tile: #243447;
+  --tile2: #243447;
+  --accent: #c51f5d;
+  --text: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.name-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-size: 148px;
+  padding: 0 0 0 18vw;
+}
+
+.last {
+  color: var(--accent);
+}
+
+.degree-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.school-major-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.school-title,
+.school-text {
+  text-align: right;
+}
+
+.school-major-container,
+.minor-container {
+  margin: 0 0 0 5vw;
+}
+
+.school-container {
+  margin: 0 5vw 0 0;
+}
+
+.major-title,
+.minor-title,
+.school-title {
+  font-size: 32px;
+  color: var(--tile);
+}
+
+.major-text,
+.minor-text,
+.school-text {
+  font-size: 24px;
+}
+
+.major-text p,
+.frontend-title p {
+  color: var(--accent);
+  display: inline;
+}
+
+.frontend-title {
+  font-size: 28px;
+  margin: 0 0 5vh 5vw;
+}
+
+.degree-container {
+  margin: 0 0 20vh 0;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-evenly;
+}
+
+.project {
+  background-color: var(--tile);
+  position: relative;
+  text-align: center;
+  margin: 0 0 20vh 0;
+  width: 45vw;
+  margin-bottom: 40px;
+  animation-name: no_shadow;
+  animation-duration: 0.2s;
+  animation-direction: forwards;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+
+.project:hover {
+  animation-name: pop_shadow;
+  animation-duration: 0.2s;
+  animation-direction: normal;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+.major-title,
+.major-text,
+.school-title,
+.school-text,
+.minor-title,
+.minor-text {
+  transform: translateY(10rem);
+  animation: fadeInUp 2s ease 0s forwards;
+}
+
+.img-small {
+  padding-bottom: 56%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.one .img-small {
+  background-image: url("../img/1.png");
+}
+.two .img-small {
+  background-image: url("../img/2.png");
+}
+.three .img-small {
+  background-image: url("../img/3.jpg");
+}
+.four .img-small {
+  background-image: url("../img/4.png");
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s ease;
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-body {
+  position: fixed;
+  z-index: 101;
+  background-color: var(--tile);
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+  align-items: center;
+  flex-wrap: nowrap;
+  top: 5vh;
+  right: 5vw;
+  width: 90vw;
+}
+
+.vertical_line {
+  z-index: 102;
+  position: relative;
+  border-left: 2px solid var(--background);
+  border-bottom: 0px solid var(--background);
+  height: 95%;
+  width: 1px;
+}
+
+.modal_img {
+  position: relative;
+  max-width: 75%;
+  max-height: 90%;
+  margin: 20px;
+}
+
+.modal-text {
+  margin: 20px 20px 20px 20px;
+}
+
+.modal-text h3,
+.card-title {
+  color: var(--accent);
+}
+
+.card-title,
+.card-text {
+  margin: 15px;
+}
+
+.modal-text h3,
+.card-title {
+  color: var(--accent);
+}
+
+hr {
+  margin: 15px;
+  border: 1px solid var(--background);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop_shadow {
+  from {
+    right: 0px;
+    bottom: 0px;
+  }
+  to {
+    right: 5px;
+    bottom: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.33);
+  }
+}
+
+@keyframes no_shadow {
+  from {
+    right: 5px;
+    bottom: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.33);
+  }
+  to {
+    right: 0px;
+    bottom: 0px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
